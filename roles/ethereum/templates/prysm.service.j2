@@ -1,0 +1,20 @@
+[Unit]
+Description=Prysm Node
+After=network.target
+
+[Service]
+User={{ ansible_user }}
+Type=simple
+ExecStart={{ prysm_directory }}/prysm.sh beacon-chain \
+  --http-web3provider=http://localhost:8551  \
+  --jwt-secret={{ prysm_directory }}/jwt.hex \
+  --block-batch-limit=64 \
+  --accept-terms-of-use \
+  --checkpoint-sync-url={{ prysm_checkpoint }}  \
+  --genesis-beacon-api-url={{ prysm_checkpoint }} \
+  {{ prysm_flag }}
+Restart=on-failure
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

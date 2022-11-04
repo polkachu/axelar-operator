@@ -1,0 +1,9 @@
+---
+- name: Install Geth
+  import_tasks: geth.yml
+
+- name: Install Prysm
+  import_tasks: prysm.yml
+
+- name: Launch Prysm
+  import_tasks: launch.yml

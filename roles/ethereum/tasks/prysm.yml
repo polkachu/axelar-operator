@@ -1,0 +1,29 @@
+---
+- name: Make prysm folder
+  file:
+    path: '{{ prysm_directory }}/'
+    state: directory
+
+- name: Pull prysm.sh
+  get_url:
+    url: '{{ prysm_shell }}'
+    dest: '{{ prysm_directory }}/prysm.sh'
+    mode: '0700'
+
+- name: Pull genesis.ssz
+  get_url:
+    url: '{{ prysm_genesis }}'
+    dest: '{{ prysm_directory }}/genesis.ssz'
+    mode: '0644'
+
+- name: Generate Secret
+  shell: openssl rand -hex 32 | tr -d "\n" > "{{ prysm_directory }}/jwt.hex"
+
+- name: Copy prysm systemd file
+  become: true
+  template:
+    src: 'prysm.service.j2'
+    dest: '/etc/systemd/system/prysm.service'
+    owner: root
+    group: root
+    mode: '0644'

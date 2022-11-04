@@ -1,0 +1,10 @@
+[ethereum]
+ethereum_mainnet ansible_host=10.0.0.1 node_type=mainnet
+ethereum_testnet ansible_host=10.0.0.2 node_type=mainnet
+
+[all:vars]
+ansible_user=ubuntu
+ansible_port=2200
+ansible_ssh_private_key_file="~/.ssh/id_rsa"
+user_directory='/home/{{ ansible_user }}'
+node_type_varfile='group_vars/{{ node_type }}.yml'

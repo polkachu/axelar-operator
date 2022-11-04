@@ -1,0 +1,22 @@
+[Unit]
+Description=Geth Node
+After=network.target
+
+[Service]
+User=ubuntu
+Type=simple
+ExecStart=/usr/bin/geth \
+  --syncmode "snap" \
+  --http \
+  --http.vhosts "*" \
+  --http.addr 0.0.0.0 \
+  --http.port 8545 \
+  --authrpc.jwtsecret {{ prysm_directory }}/jwt.hex \
+  --authrpc.addr 0.0.0.0 \
+  --port 30303
+
+Restart=on-failure
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

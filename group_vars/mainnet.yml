@@ -1,0 +1,4 @@
+# Prysm
+prysm_checkpoint: https://mainnet-checkpoint-sync.stakely.io
+prysm_genesis: https://github.com/eth-clients/eth2-networks/raw/master/shared/mainnet/genesis.ssz
+prysm_flag: '--mainnet'

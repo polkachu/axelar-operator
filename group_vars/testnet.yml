@@ -1,0 +1,4 @@
+# Prysm
+prysm_checkpoint: https://prater-checkpoint-sync.stakely.io
+prysm_genesis: https://github.com/eth-clients/eth2-networks/raw/master/shared/prater/genesis.ssz
+prysm_flag: '--prater'

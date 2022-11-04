@@ -1,0 +1,29 @@
+---
+- name: Add geth repository
+  become: true
+  apt_repository:
+    repo: 'ppa:ethereum/ethereum'
+
+- name: Update apt repo and cache
+  become: true
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+    upgrade: dist
+
+- name: Install geth
+  become: true
+  apt:
+    name:
+      - ethereum
+    state: latest
+    update_cache: true
+
+- name: Copy geth systemd file
+  become: true
+  template:
+    src: 'geth.service.j2'
+    dest: '/etc/systemd/system/geth.service'
+    owner: root
+    group: root
+    mode: '0644'
