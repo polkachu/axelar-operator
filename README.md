@@ -1,3 +1,3 @@
-# Ansible scripts to support all Axelar networks
+# Ansible scripts for all Axelar networks
 
 TBD
