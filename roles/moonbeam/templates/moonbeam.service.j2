@@ -1,0 +1,37 @@
+[Unit]
+Description=Moonbeam Node
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=10
+User={{ ansible_user }}
+SyslogIdentifier=moonbeam
+SyslogFacility=local7
+KillSignal=SIGHUP
+ExecStart={{ moonbeam_node_directory }}/moonbeam \
+ --port {{ moonbeam_p2p_port }} \
+ --rpc-port 9933 \
+ --ws-port 9944 \
+ --unsafe-rpc-external \
+ --rpc-cors all \
+ --execution wasm \
+ --wasm-execution compiled \
+ --pruning=archive \
+ --state-cache-size 1 \
+ --db-cache 16000 \
+ --base-path {{ moonbeam_data_directory }} \
+ --chain {{ moonbeam_chain_id}} \
+ --name "{{ nickname}}" \
+ -- \
+ --port 30334 \
+ --rpc-port 9934 \
+ --ws-port 9945 \
+ --execution wasm \
+ --pruning=1000 \
+ --name="{{ nickname}} (Embedded Relay)"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+---
+# - name: Install dependency
+#   import_tasks: dependency.yml
+
+- name: Install arbitrum
+  import_tasks: arbitrum.yml

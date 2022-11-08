@@ -2,3 +2,7 @@
 prysm_checkpoint: https://mainnet-checkpoint-sync.stakely.io
 prysm_genesis: https://github.com/eth-clients/eth2-networks/raw/master/shared/mainnet/genesis.ssz
 prysm_flag: '--mainnet'
+
+# Moonbeam
+moonbeam_chain_id: moonbeam
+moonbeam_data_directory: '{{ user_directory }}/.moonbeam/data'

@@ -8,3 +8,4 @@ ansible_port=2200
 ansible_ssh_private_key_file="~/.ssh/id_rsa"
 user_directory='/home/{{ ansible_user }}'
 node_type_varfile='group_vars/{{ node_type }}.yml'
+nickname='polkachu'

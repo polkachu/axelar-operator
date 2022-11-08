@@ -1,0 +1,55 @@
+---
+- name: Add golang-backports repository
+  become: true
+  apt_repository:
+    repo: 'ppa:longsleep/golang-backports'
+
+- name: Update apt repo and cache
+  become: true
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+    upgrade: dist
+
+- name: Install dependency
+  become: true
+  apt:
+    name:
+      - autoconf
+      - automake
+      - cmake
+      - libboost-dev
+      - libboost-filesystem-dev
+      - libgmp-dev
+      - libssl-dev
+      - libgflags-dev
+      - libsnappy-dev
+      - zlib1g-dev
+      - libbz2-dev
+      - liblz4-dev
+      - libzstd-dev
+      - libtool
+      - golang-go
+      - clang-format
+    state: latest
+    update_cache: true
+
+- name: Clone rocksdb repo
+  git:
+    repo: '{{ rocksdb_repo }}'
+    dest: '{{ rocksdb_directory }}'
+    version: 'v6.20.3'
+    update: true
+    force: true
+    recursive: false
+
+- name: Install rocksdb 1
+  command: 'make -j 16 shared_lib'
+  args:
+    chdir: '{{ rocksdb_directory }}'
+
+- name: Install rocksdb 2
+  become: true
+  command: 'make install-shared'
+  args:
+    chdir: '{{ rocksdb_directory }}'
