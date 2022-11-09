@@ -6,3 +6,6 @@ prysm_flag: '--prater'
 # Moonbeam
 moonbeam_chain_id: alphanet
 moonbeam_data_directory: '{{ user_directory }}/.alphanet/data'
+
+# Fantom
+fantom_genesis: testnet-6226-pruned-mpt.g

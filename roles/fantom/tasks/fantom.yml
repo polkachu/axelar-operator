@@ -1,0 +1,33 @@
+---
+- name: Clone Fantom repo
+  git:
+    repo: '{{ fantom_repository }}'
+    dest: '{{ fantom_directory }}'
+    version: '{{ fantom_version }}'
+    update: yes
+    force: yes
+    recursive: no
+
+- name: Install Fantom
+  command: '{{ item }}'
+  args:
+    chdir: '{{ fantom_directory }}'
+  with_items:
+    - 'make'
+
+- name: Copy Fantom binary
+  become: true
+  copy:
+    remote_src: true
+    src: '{{ fantom_directory }}/build/opera'
+    dest: '/usr/bin/opera'
+    mode: '0755'
+
+- name: Copy Fantom systemd file
+  become: true
+  template:
+    src: 'fantom.service.j2'
+    dest: '/etc/systemd/system/fantom.service'
+    owner: root
+    group: root
+    mode: '0644'

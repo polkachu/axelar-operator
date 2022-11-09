@@ -1,5 +1,6 @@
 ---
-# - name: Install Moonbeam
-#   import_tasks: moonbeam.yml
+- name: Install Moonbeam
+  import_tasks: moonbeam.yml
+
 - name: Launch Moonbeam
   import_tasks: launch.yml
