@@ -31,3 +31,20 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: Open p2p port
+  become: true
+  ufw:
+    rule: allow
+    proto: tcp
+    port: '{{ fantom_p2p_port }}'
+
+- name: Restart Nodes
+  become: true
+  systemd:
+    name: '{{ item }}'
+    daemon_reload: true
+    state: restarted
+    enabled: true
+  loop:
+    - fantom

@@ -14,14 +14,23 @@ You run one playbook to set up a node or update a node version. Here is an examp
 # Mainnet
 ansible-playbook ethereum.yml -e "target=ethereum_mainnet"
 # Testnet
-ansible-playbook ethereum.yml -e "target=ethereum_mainnet"
+ansible-playbook ethereum.yml -e "target=ethereum_testnet"
+# Full install
+ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 ```
+
+## Supported Modes
+
+| Mode         | Extra                  |
+| ------------ | ---------------------- |
+| Full Install | `target=XYZ mode=full` |
+| Upgrade      | `target=XYZ`           |
 
 ## Supported Nodes
 
-| Chain     | Supported? | Playbook       | Update version                                    | Note                                                                       |
-| --------- | ---------- | -------------- | ------------------------------------------------- | -------------------------------------------------------------------------- |
-| Avalanche | No         |                | Just restart the service                          | The official Axelar doc is simple enough                                   |
-| Moonbeam  | Yes        | `moonbeam.yml` | Update version variable and run the same playbook |                                                                            |
-| Ethereum  | Yes        | `ethereum.yml` | sudo apt update && sudo apt upgrade               | Geth + Prysm                                                               |
-| Fantom    | Yes        | `fantom.yml`   | Update version variable and run the same playbook | For initial installation, use mode=full to download the large genesis file |
+| Chain     | Supported? | Playbook       | Upgrade                       | Note                    |
+| --------- | ---------- | -------------- | ----------------------------- | ----------------------- |
+| Avalanche | No         | NA             | Restart service               | Use Axelar Official doc |
+| Moonbeam  | Yes        | `moonbeam.yml` | Update version & run playbook |                         |
+| Ethereum  | Yes        | `ethereum.yml` | apt update & upgrade          | Geth + Prysm            |
+| Fantom    | Yes        | `fantom.yml`   | Update version & run playbook |                         |
