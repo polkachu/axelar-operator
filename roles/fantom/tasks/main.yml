@@ -1,6 +1,6 @@
 ---
-- name: Download Genesis
-  import_tasks: genesis.yml
+- name: Config
+  import_tasks: config.yml
   when: mode is defined and mode == "full"
 
 - name: Install Fantom

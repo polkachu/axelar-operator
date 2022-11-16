@@ -1,6 +1,0 @@
----
-- name: download Fantom genesis file
-  get_url:
-    url: 'https://download.fantom.network/{{ fantom_genesis }}'
-    dest: '{{ fantom_data_directory }}'
-    mode: '0700'

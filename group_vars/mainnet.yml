@@ -9,3 +9,6 @@ moonbeam_data_directory: '{{ user_directory }}/.moonbeam/data'
 
 # Fantom
 fantom_genesis: mainnet-109331-pruned-mpt.g
+
+# Binance
+binance_download_file: mainnet.zip

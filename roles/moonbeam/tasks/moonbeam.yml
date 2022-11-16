@@ -1,34 +1,9 @@
 ---
-- name: Ensure folders exist
-  file:
-    path: '{{ item }}'
-    state: directory
-    mode: '0755'
-  with_items:
-    - '{{ moonbeam_data_directory }}'
-    - '{{ moonbeam_node_directory }}'
-
 - name: download moonbeam binary
   get_url:
     url: 'https://github.com/PureStake/moonbeam/releases/download/{{ moonbeam_version }}/moonbeam'
     dest: '{{ moonbeam_node_directory }}'
     mode: '0700'
-
-- name: Copy moonbeam systemd file
-  become: true
-  template:
-    src: 'moonbeam.service.j2'
-    dest: '/etc/systemd/system/moonbeam.service'
-    owner: root
-    group: root
-    mode: '0644'
-
-- name: Open p2p port
-  become: true
-  ufw:
-    rule: allow
-    proto: tcp
-    port: '{{ moonbeam_p2p_port }}'
 
 - name: Restart Nodes
   become: true

@@ -1,0 +1,34 @@
+---
+- name: Clone Binance repo
+  git:
+    repo: '{{ binance_repository }}'
+    dest: '{{ binance_directory }}'
+    version: '{{ binance_version }}'
+    update: yes
+    force: yes
+    recursive: no
+
+- name: Install Binance
+  command: '{{ item }}'
+  args:
+    chdir: '{{ binance_directory }}'
+  with_items:
+    - 'make geth'
+
+- name: Copy Binance binary
+  become: true
+  copy:
+    remote_src: true
+    src: '{{ binance_directory }}/build/bin/geth'
+    dest: '/usr/bin/binance'
+    mode: '0755'
+
+- name: Restart Node
+  become: true
+  systemd:
+    name: '{{ item }}'
+    daemon_reload: true
+    state: restarted
+    enabled: true
+  loop:
+    - binance

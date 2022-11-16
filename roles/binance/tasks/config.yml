@@ -1,0 +1,84 @@
+---
+- name: Install dependencies
+  become: true
+  apt:
+    name:
+      - make
+      - clang
+      - pkg-config
+      - libssl-dev
+      - libclang-dev
+      - build-essential
+      - git
+      - curl
+      - ntp
+      - jq
+      - llvm
+      - tmux
+      - htop
+      - screen
+      - unzip
+    state: latest
+    update_cache: true
+
+- name: Ensure data exist
+  file:
+    path: '{{ item }}'
+    state: directory
+    mode: '0755'
+  with_items:
+    - '{{ binance_data_directory }}'
+
+- name: download config zip file
+  get_url:
+    url: 'https://github.com/bnb-chain/bsc/releases/download/{{ binance_version }}/{{ binance_download_file }}'
+    dest: '/tmp/binance.zip'
+    mode: '0700'
+
+- name: unarchive config file
+  unarchive:
+    src: '/tmp/binance.zip'
+    remote_src: yes
+    dest: '{{ binance_data_directory }}'
+    mode: '0644'
+
+- name: register public ip
+  uri:
+    url: 'https://api.ipify.org?format=json'
+  register: public_ip
+
+- name: Set up external address
+  lineinfile:
+    path: '{{ binance_data_directory  }}/config.toml'
+    regexp: 'HTTPHost = "'
+    line: 'HTTPHost = "{{ public_ip.json.ip }}"'
+    state: present
+
+- name: Delete Lines
+  lineinfile:
+    path: '{{ binance_data_directory  }}/config.toml'
+    regexp: '{{ item }}'
+    line: ''
+    state: present
+  with_items:
+    - 'Node.LogConfig'
+    - 'FileRoot = ""'
+    - 'FilePath = "bsc.log"'
+    - 'MaxBytesSize = 10485760'
+    - 'Level = "info"'
+
+- name: Copy Binance systemd file
+  become: true
+  template:
+    src: 'binance.service.j2'
+    dest: '/etc/systemd/system/binance.service'
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Open p2p port
+  become: true
+  ufw:
+    rule: allow
+    proto: tcp
+    port: '{{ binance_p2p_port }}'
