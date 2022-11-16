@@ -2,3 +2,4 @@
 prysm_shell: https://raw.githubusercontent.com/prysmaticlabs/prysm/master/prysm.sh
 prysm_directory: '{{ user_directory }}/prysm'
 geth_p2p_port: 30303
+geth_http_port: 8545

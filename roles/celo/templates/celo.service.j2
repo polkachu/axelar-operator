@@ -1,0 +1,24 @@
+[Unit]
+Description=Celo Node
+After=network.target
+
+[Service]
+User={{ ansible_user }}
+Type=simple
+ExecStart=/usr/bin/celo {{ celo_flag }} \
+ --syncmode full \
+ --http --http.addr 0.0.0.0 \
+ --http.corsdomain '*' \
+ --http.vhosts "*" \
+ --http.port {{ celo_http_port }} \
+ --light.serve 90 \
+ --light.maxpeers 1000 \
+ --maxpeers 1100 \
+ --http.api "eth,net,web3" \
+ --port {{ celo_p2p_port }}
+
+Restart=on-failure
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,34 @@
+---
+- name: Clone Celo repo
+  git:
+    repo: '{{ celo_repository }}'
+    dest: '{{ celo_directory }}'
+    version: '{{ celo_version }}'
+    update: yes
+    force: yes
+    recursive: no
+
+- name: Install celo
+  command: '{{ item }}'
+  args:
+    chdir: '{{ celo_directory }}'
+  with_items:
+    - 'make geth'
+
+- name: Copy celo binary
+  become: true
+  copy:
+    remote_src: true
+    src: '{{ celo_directory }}/build/bin/geth'
+    dest: '/usr/bin/celo'
+    mode: '0755'
+
+- name: Restart Nodes
+  become: true
+  systemd:
+    name: '{{ item }}'
+    daemon_reload: true
+    state: restarted
+    enabled: true
+  loop:
+    - celo

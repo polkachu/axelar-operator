@@ -32,6 +32,7 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 | --------- | ---------- | -------------- | ----------------------------- | ----------------------- |
 | Arbitrum  | No         | NA             | Restart docker                | Use Axelar Official doc |
 | Avalanche | No         | NA             | Restart service               | Use Axelar Official doc |
-| Moonbeam  | Yes        | `moonbeam.yml` | Update version & run playbook |                         |
 | Ethereum  | Yes        | `ethereum.yml` | apt update & upgrade          | Geth + Prysm            |
 | Fantom    | Yes        | `fantom.yml`   | Update version & run playbook |                         |
+| Celo      | Yes        | `celo.yml`     | Update version & run playbook |                         |
+| Moonbeam  | Yes        | `moonbeam.yml` | Update version & run playbook |                         |

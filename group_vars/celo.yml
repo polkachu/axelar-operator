@@ -1,0 +1,7 @@
+---
+celo_repository: 'https://github.com/celo-org/celo-blockchain'
+celo_directory: '{{ user_directory }}/celo'
+celo_data_directory: '{{ user_directory }}/.celo'
+celo_version: v1.7.0
+celo_p2p_port: 20303
+celo_http_port: 28545

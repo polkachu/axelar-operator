@@ -12,3 +12,6 @@ fantom_genesis: testnet-6226-pruned-mpt.g
 
 # Binance
 binance_download_file: testnet.zip
+
+# Celo
+celo_flag: '--alfajores'

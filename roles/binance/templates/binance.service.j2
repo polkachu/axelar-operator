@@ -10,10 +10,10 @@ ExecStart=/usr/bin/binance \
  --datadir {{ binance_data_directory }} \
  --port {{ binance_p2p_port }} \
  --http \
- --http.port 18545 \
+ --http.port {{ binance_http_port }} \
  --ws \
  --ws.origins '*' \
- --ws.port 18546 \
+ --ws.port {{ binance_ws_port }} \
 
 Restart=on-failure
 LimitNOFILE=65535

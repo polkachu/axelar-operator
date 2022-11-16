@@ -1,0 +1,16 @@
+---
+- name: Copy Celo systemd file
+  become: true
+  template:
+    src: 'celo.service.j2'
+    dest: '/etc/systemd/system/celo.service'
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Open p2p port
+  become: true
+  ufw:
+    rule: allow
+    proto: tcp
+    port: '{{ celo_p2p_port }}'

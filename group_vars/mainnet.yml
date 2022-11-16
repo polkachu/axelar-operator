@@ -12,3 +12,6 @@ fantom_genesis: mainnet-109331-pruned-mpt.g
 
 # Binance
 binance_download_file: mainnet.zip
+
+# Celo
+celo_flag: ''
