@@ -28,11 +28,12 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 
 ## Supported Nodes
 
-| Chain     | Supported? | Playbook       | Upgrade                       | Note                    |
-| --------- | ---------- | -------------- | ----------------------------- | ----------------------- |
-| Arbitrum  | WIP        | NA             | Restart docker                | Use Axelar Official doc |
-| Avalanche | No         | NA             | Restart service               | Use Axelar Official doc |
-| Ethereum  | Yes        | `ethereum.yml` | apt update & upgrade          | Geth + Prysm            |
-| Fantom    | Yes        | `fantom.yml`   | Update version & run playbook |                         |
-| Celo      | Yes        | `celo.yml`     | Update version & run playbook |                         |
-| Moonbeam  | Yes        | `moonbeam.yml` | Update version & run playbook |                         |
+| Chain     | Supported? | Playbook       | Upgrade                       | Note                                                                         |
+| --------- | ---------- | -------------- | ----------------------------- | ---------------------------------------------------------------------------- |
+| Arbitrum  | WIP        | NA             | Restart docker                | Use Axelar Official doc                                                      |
+| Avalanche | No         | NA             | Restart service               | Use Axelar Official doc                                                      |
+| Ethereum  | Yes        | `ethereum.yml` | apt update & upgrade          | Geth + Prysm                                                                 |
+| Fantom    | Yes        | `fantom.yml`   | Update version & run playbook |                                                                              |
+| Celo      | Yes        | `celo.yml`     | Update version & run playbook |                                                                              |
+| kava      | No         | NA             | NA                            | See our [Cosmos Ansible Repo](https://github.com/polkachu/cosmos-validators) |
+| Moonbeam  | Yes        | `moonbeam.yml` | Update version & run playbook |                                                                              |
