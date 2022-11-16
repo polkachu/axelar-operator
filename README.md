@@ -30,7 +30,7 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 
 | Chain     | Supported? | Playbook       | Upgrade                       | Note                    |
 | --------- | ---------- | -------------- | ----------------------------- | ----------------------- |
-| Arbitrum  | No         | NA             | Restart docker                | Use Axelar Official doc |
+| Arbitrum  | WIP        | NA             | Restart docker                | Use Axelar Official doc |
 | Avalanche | No         | NA             | Restart service               | Use Axelar Official doc |
 | Ethereum  | Yes        | `ethereum.yml` | apt update & upgrade          | Geth + Prysm            |
 | Fantom    | Yes        | `fantom.yml`   | Update version & run playbook |                         |
