@@ -30,13 +30,13 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 
 | Chain     | Supported? | Playbook       | Upgrade                       | Note                                                                         |
 | --------- | ---------- | -------------- | ----------------------------- | ---------------------------------------------------------------------------- |
-| Arbitrum  | WIP        |                |                               |                                                                              |
+| Arbitrum  | No         | NA             | Restart service               | Use Axelar Official doc                                                      |
 | Aurora    | WIP        |                |                               |                                                                              |
 | Avalanche | No         | NA             | Restart service               | Use Axelar Official doc                                                      |
 | Binance   | WIP        |                |                               |                                                                              |
 | Celo      | Yes        | `celo.yml`     | Update version & run playbook |                                                                              |
 | Ethereum  | Yes        | `ethereum.yml` | apt update & upgrade          | Geth + Prysm                                                                 |
-| Fantom    | Yes        | `fantom.yml`   | Update version & run playbook |                                                                              |
+| Fantom    | Yes        | `fantom.yml`   | Update version & run playbook | Use snapshot [here](https://docs.fantom.foundation/node/snapshot-download)   |
 | kava      | No         | NA             | NA                            | See our [Cosmos Ansible Repo](https://github.com/polkachu/cosmos-validators) |
 | Moonbeam  | Yes        | `moonbeam.yml` | Update version & run playbook |                                                                              |
 | Polygon   | WIP        |                |                               |                                                                              |
