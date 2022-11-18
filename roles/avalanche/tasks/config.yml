@@ -1,0 +1,14 @@
+---
+- name: register public ip
+  uri:
+    url: 'https://api.ipify.org?format=json'
+  register: public_ip
+
+- name: Copy Avalanche systemd file
+  become: true
+  template:
+    src: 'avalanchego.service.j2'
+    dest: '/etc/systemd/system/avalanchego.service'
+    owner: root
+    group: root
+    mode: '0644'

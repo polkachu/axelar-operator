@@ -15,3 +15,6 @@ binance_download_file: testnet.zip
 
 # Celo
 celo_flag: '--alfajores'
+
+# Avalanche
+avalanche_flag: '--network-id=fuji'

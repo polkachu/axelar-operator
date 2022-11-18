@@ -1,0 +1,35 @@
+---
+- name: Download Avalanche file
+  get_url:
+    url: '{{ avalanche_download_link }}'
+    dest: '/tmp/avalanche.tar.gz'
+    mode: '0700'
+
+- name: unarchive binary file
+  unarchive:
+    src: '/tmp/avalanche.tar.gz'
+    dest: '/tmp/'
+    mode: '0755'
+    remote_src: true
+
+- name: Copy binary
+  copy:
+    remote_src: true
+    src: '/tmp/avalanchego-{{ avalanche_version }}/avalanchego'
+    dest: '{{ avalanche_node_directory }}'
+    mode: '0755'
+
+- name: Make plugins folder
+  file:
+    path: '{{ avalanche_node_directory }}/plugins'
+    state: directory
+
+- name: Restart Nodes
+  become: true
+  systemd:
+    name: '{{ item }}'
+    daemon_reload: true
+    state: restarted
+    enabled: true
+  loop:
+    - avalanchego

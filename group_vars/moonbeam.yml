@@ -1,4 +1,3 @@
 ---
 moonbeam_node_directory: '{{ user_directory }}/moonbeam-node'
 moonbeam_version: v0.23.0
-moonbeam_p2p_port: 30333

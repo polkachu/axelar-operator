@@ -1,0 +1,15 @@
+[Unit]
+Description=AvalancheGo Node
+After=network.target
+
+[Service]
+User={{ ansible_user }}
+Type=simple
+WorkingDirectory={{ user_directory }}
+ExecStart={{ avalanche_node_directory }}/avalanchego --http-host="" --public-ip="{{ public_ip.json.ip }}" {{ avalanche_flag }}
+LimitNOFILE=32768
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
