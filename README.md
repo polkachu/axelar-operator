@@ -33,7 +33,7 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 | Arbitrum  | No         | NA              | Restart service               | Use Axelar Official doc                                                      |
 | Aurora    | WIP        |                 |                               |                                                                              |
 | Avalanche | Yes        | `avalanche.yml` | Update version & run playbook |                                                                              |
-| Binance   | WIP        |                 |                               |                                                                              |
+| Binance   | Yes        | `binance.yml`   | Update version & run playbook | Use snapshot [here](https://github.com/BNB48Club/bsc-snapshots)              |
 | Celo      | Yes        | `celo.yml`      | Update version & run playbook |                                                                              |
 | Ethereum  | Yes        | `ethereum.yml`  | apt update & upgrade          | Geth + Prysm                                                                 |
 | Fantom    | Yes        | `fantom.yml`    | Update version & run playbook | Use snapshot [here](https://docs.fantom.foundation/node/snapshot-download)   |
