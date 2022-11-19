@@ -7,6 +7,7 @@ User={{ ansible_user }}
 Type=simple
 ExecStart=/usr/bin/celo {{ celo_flag }} \
  --syncmode full \
+ --etherbase {{ celo_address }} \
  --http --http.addr 0.0.0.0 \
  --http.corsdomain '*' \
  --http.vhosts "*" \
