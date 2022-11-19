@@ -29,21 +29,21 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 
 ## Supported Nodes
 
-| Chain     | Supported? | Playbook        | Upgrade                       | Note                                                                         |
-| --------- | ---------- | --------------- | ----------------------------- | ---------------------------------------------------------------------------- |
-| Arbitrum  | No         | NA              | Restart docker                | Use Axelar Official doc                                                      |
-| Aurora    | No         | NA              | Restart docker                | Use Axelar Official doc                                                      |
-| Avalanche | Yes        | `avalanche.yml` | Update version & run playbook |                                                                              |
-| Binance   | Yes        | `binance.yml`   | Update version & run playbook | Use [snapshot](https://github.com/BNB48Club/bsc-snapshots)                   |
-| Celo      | Yes        | `celo.yml`      | Update version & run playbook |                                                                              |
-| Ethereum  | Yes        | `ethereum.yml`  | apt update & upgrade          | Geth + Prysm                                                                 |
-| Fantom    | Yes        | `fantom.yml`    | Update version & run playbook | Use [snapshot](https://docs.fantom.foundation/node/snapshot-download)        |
-| kava      | Yes        | NA              | NA                            | See our [Cosmos Ansible Repo](https://github.com/polkachu/cosmos-validators) |
-| Moonbeam  | Yes        | `moonbeam.yml`  | Update version & run playbook |                                                                              |
-| Polygon   | WIP        | `polygon.yml`   | Update version & run playbook | [official Ansible script](https://github.com/maticnetwork/node-ansible)      |
+| Chain     | Supported? | Playbook        | Upgrade                       | Note                                                                     |
+| --------- | ---------- | --------------- | ----------------------------- | ------------------------------------------------------------------------ |
+| Arbitrum  | No         | NA              | Restart docker                | Use Axelar Official doc                                                  |
+| Aurora    | No         | NA              | Restart docker                | Use Axelar Official doc                                                  |
+| Avalanche | Yes        | `avalanche.yml` | Update version & run playbook |                                                                          |
+| Binance   | Yes        | `binance.yml`   | Update version & run playbook | Use [snapshot](https://github.com/BNB48Club/bsc-snapshots)               |
+| Celo      | Yes        | `celo.yml`      | Update version & run playbook |                                                                          |
+| Ethereum  | Yes        | `ethereum.yml`  | apt update & upgrade          | Geth + Prysm                                                             |
+| Fantom    | Yes        | `fantom.yml`    | Update version & run playbook | Use [snapshot](https://docs.fantom.foundation/node/snapshot-download)    |
+| kava      | Yes        | NA              | NA                            | See [Cosmos Ansible Repo](https://github.com/polkachu/cosmos-validators) |
+| Moonbeam  | Yes        | `moonbeam.yml`  | Update version & run playbook |                                                                          |
+| Polygon   | WIP        | `polygon.yml`   | Update version & run playbook | [official Ansible script](https://github.com/maticnetwork/node-ansible)  |
 
 ## Note
 
-The mainnet version of the deployment script is fully tested with our own deployed nodes.
+The mainnet version of the deployment script is fully tested with our own node deployments.
 
-The testnet version of the deployment script is never fully tested. The script has all the right testnet vars based on our understanding, but please verify before blindly using it. Feel free to send a PR if you find a bug. Thanks!
+The testnet version of the deployment script is never fully tested. The script has all the right testnet vars based on our understanding, but please verify before using it. Feel free to send a PR if you find a bug. Thanks!
