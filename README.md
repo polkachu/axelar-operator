@@ -33,10 +33,10 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 | Arbitrum  | No         | NA              | Restart service               | Use Axelar Official doc                                                      |
 | Aurora    | WIP        |                 |                               |                                                                              |
 | Avalanche | Yes        | `avalanche.yml` | Update version & run playbook |                                                                              |
-| Binance   | Yes        | `binance.yml`   | Update version & run playbook | Use snapshot [here](https://github.com/BNB48Club/bsc-snapshots)              |
+| Binance   | Yes        | `binance.yml`   | Update version & run playbook | Use [snapshot](https://github.com/BNB48Club/bsc-snapshots)                   |
 | Celo      | Yes        | `celo.yml`      | Update version & run playbook |                                                                              |
 | Ethereum  | Yes        | `ethereum.yml`  | apt update & upgrade          | Geth + Prysm                                                                 |
-| Fantom    | Yes        | `fantom.yml`    | Update version & run playbook | Use snapshot [here](https://docs.fantom.foundation/node/snapshot-download)   |
+| Fantom    | Yes        | `fantom.yml`    | Update version & run playbook | Use [snapshot](https://docs.fantom.foundation/node/snapshot-download)        |
 | kava      | Yes        | NA              | NA                            | See our [Cosmos Ansible Repo](https://github.com/polkachu/cosmos-validators) |
 | Moonbeam  | Yes        | `moonbeam.yml`  | Update version & run playbook |                                                                              |
 | Polygon   | WIP        |                 |                               |                                                                              |
