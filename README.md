@@ -4,7 +4,8 @@ Design principles:
 
 1. Support both mainnet and testnet
 1. Support chains with direct binary install and leave out Docker installation (e.g. Arbitrum)
-1. The same playbook can be used for version upgrade (default) and initial installation (with an extra flag)
+1. Can be used for version upgrade (default) and initial installation (with an extra flag)
+1. Assume that golang already exists on the server
 
 ## TL/DR
 
