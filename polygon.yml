@@ -1,0 +1,8 @@
+---
+- name: Set up Polygon node
+  hosts: '{{ target }}'
+  gather_facts: false
+  vars_files:
+    - '{{ node_type_varfile }}'
+  roles:
+    - polygon

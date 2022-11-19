@@ -18,3 +18,6 @@ celo_flag: '--alfajores'
 
 # Avalanche
 avalanche_flag: '--network-id=fuji'
+
+# Polygon
+polygon_network_name: 'testnet-v4'

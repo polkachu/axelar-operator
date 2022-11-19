@@ -1,0 +1,17 @@
+[Unit]
+  Description=bor
+  StartLimitIntervalSec=500
+  StartLimitBurst=5
+
+[Service]
+  Restart=on-failure
+  RestartSec=5s
+  WorkingDirectory={{ polygon_node_directory }}
+  ExecStart=/bin/bash {{ polygon_node_directory }}/bor/start.sh
+  Type=simple
+  User=ubuntu
+  KillSignal=SIGINT
+  TimeoutStopSec=120
+
+[Install]
+  WantedBy=multi-user.target

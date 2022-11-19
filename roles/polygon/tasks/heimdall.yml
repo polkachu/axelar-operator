@@ -1,0 +1,16 @@
+---
+- name: Clone the Heimdall repo
+  git:
+    repo: '{{ heimdall_repository }}'
+    dest: '{{ heimdall_directory }}'
+    version: '{{ heimdall_version }}'
+    force: yes
+    update: yes
+    recursive: no
+
+- name: Install Heimdall
+  command: '{{ item }}'
+  args:
+    chdir: '{{ heimdall_directory }}'
+  with_items:
+    - 'make install'

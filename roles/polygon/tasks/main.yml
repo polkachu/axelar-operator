@@ -1,0 +1,20 @@
+---
+# - name: Heimdall
+#   import_tasks: heimdall.yml
+#   when: mode is defined and mode == "full"
+
+# - name: Bor
+#   import_tasks: bor.yml
+#   when: mode is defined and mode == "full"
+
+- name: Setup
+  import_tasks: setup.yml
+  when: mode is defined and mode == "full"
+# - name: Install Polygon
+#   import_tasks: polygon.yml
+
+# cd ~/
+# git clone https://github.com/maticnetwork/heimdall
+# cd heimdall
+# git checkout v0.2.9
+# make install

@@ -1,0 +1,12 @@
+---
+heimdall_repository: 'https://github.com/maticnetwork/heimdall.git'
+heimdall_directory: '{{ user_directory }}/heimdall'
+heimdall_version: v0.2.12
+
+bor_repository: 'https://github.com/maticnetwork/bor.git'
+bor_directory: '{{ user_directory }}/bor'
+bor_version: v0.2.17
+
+polygon_setup_repository: 'https://github.com/maticnetwork/launch'
+polygon_setup_directory: '{{ user_directory }}/polygon_setup'
+polygon_node_directory: '{{ user_directory }}/node'

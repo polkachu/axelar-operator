@@ -1,0 +1,16 @@
+---
+- name: Clone the Bor repo
+  git:
+    repo: '{{ bor_repository }}'
+    dest: '{{ bor_directory }}'
+    version: '{{ bor_version }}'
+    force: yes
+    update: yes
+    recursive: no
+
+- name: Install bor
+  command: '{{ item }}'
+  args:
+    chdir: '{{ bor_directory }}'
+  with_items:
+    - 'make bor-all'
