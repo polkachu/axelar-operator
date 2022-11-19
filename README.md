@@ -3,28 +3,28 @@
 Design principles:
 
 1. Support both mainnet and testnet
-1. Support chains that are complex to install and upgrade; Do not support chains that are already easy based on official doc
-1. The same playbook can be used for initial installation and version upgrade
+1. Support chains with direct binary install and leave out Docker installation (e.g. Arbitrum)
+1. The same playbook can be used for version upgrade (default) and initial installation (with an extra flag)
 
 ## TL/DR
 
 You run one playbook to set up a node or update a node version. Here is a few examples:
 
 ```bash
-# Mainnet
+# Mainnet: upgrade version
 ansible-playbook ethereum.yml -e "target=ethereum_mainnet"
-# Testnet
+# Testnet: upgrade version
 ansible-playbook ethereum.yml -e "target=ethereum_testnet"
-# Full install
+# Initial full installation
 ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 ```
 
 ## Supported Modes
 
-| Mode         | Extra                  |
-| ------------ | ---------------------- |
-| Full Install | `target=XYZ mode=full` |
-| Upgrade      | `target=XYZ`           |
+| Mode                 | Flags                  |
+| -------------------- | ---------------------- |
+| Initial Installation | `target=XYZ mode=full` |
+| Version Upgrade      | `target=XYZ`           |
 
 ## Supported Nodes
 
@@ -40,3 +40,9 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 | kava      | Yes        | NA              | NA                            | See our [Cosmos Ansible Repo](https://github.com/polkachu/cosmos-validators) |
 | Moonbeam  | Yes        | `moonbeam.yml`  | Update version & run playbook |                                                                              |
 | Polygon   | WIP        |                 |                               |                                                                              |
+
+## Note
+
+The mainnet version of the deployment script is fully tested with our own deployed nodes.
+
+The testnet version of the deployment script is never fully tested. The script has all the right testnet vars based on our understanding, but please verify before blindly using it. Feel free to send a PR if you find a bug. Thanks!
