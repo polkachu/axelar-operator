@@ -42,16 +42,11 @@
     dest: '{{ binance_data_directory }}'
     mode: '0644'
 
-- name: register public ip
-  uri:
-    url: 'https://api.ipify.org?format=json'
-  register: public_ip
-
 - name: Set up external address
   lineinfile:
     path: '{{ binance_data_directory  }}/config.toml'
     regexp: 'HTTPHost = "'
-    line: 'HTTPHost = "{{ public_ip.json.ip }}"'
+    line: 'HTTPHost = "0.0.0.0"'
     state: present
 
 - name: Delete Lines

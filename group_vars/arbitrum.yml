@@ -1,8 +1,0 @@
----
-rocksdb_repo: https://github.com/facebook/rocksdb
-rocksdb_directory: '{{ user_directory }}/rocksdb'
-rocksdb_version: v6.20.3
-arbitrum_repo: https://github.com/OffchainLabs/arbitrum
-arbitrum_directory: '{{ user_directory }}/arbitrum'
-arbitrum_version: v1.4.5
-nodejs_version: 16

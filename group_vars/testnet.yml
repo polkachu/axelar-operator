@@ -1,14 +1,5 @@
-# Prysm
-prysm_checkpoint: https://prater-checkpoint-sync.stakely.io
-prysm_genesis: https://github.com/eth-clients/eth2-networks/raw/master/shared/prater/genesis.ssz
-prysm_flag: '--prater'
-
-# Moonbeam
-moonbeam_chain_id: alphanet
-moonbeam_data_directory: '{{ user_directory }}/.alphanet/data'
-
-# Fantom
-fantom_genesis: testnet-6226-pruned-mpt.g
+# Avalanche
+avalanche_flag: '--network-id=fuji'
 
 # Binance
 binance_download_file: testnet.zip
@@ -16,8 +7,17 @@ binance_download_file: testnet.zip
 # Celo
 celo_flag: '--alfajores'
 
-# Avalanche
-avalanche_flag: '--network-id=fuji'
+# Ethereum
+prysm_checkpoint: https://prater-checkpoint-sync.stakely.io
+prysm_genesis: https://github.com/eth-clients/eth2-networks/raw/master/shared/prater/genesis.ssz
+prysm_flag: '--prater'
+
+# Fantom
+fantom_genesis: testnet-6226-pruned-mpt.g
+
+# Moonbeam
+moonbeam_chain_id: alphanet
+moonbeam_data_directory: '{{ user_directory }}/.alphanet/data'
 
 # Polygon
 polygon_network_name: 'testnet-v4'

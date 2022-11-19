@@ -3,7 +3,7 @@
 Design principles:
 
 1. Support both mainnet and testnet
-1. Support chains with direct binary install and leave out Docker installation (e.g. Arbitrum)
+1. Only support chains with direct binary installation. For docker installation (Arbitrum and Aurora), users should just refer to the official doc
 1. Can be used for version upgrade (default) and initial installation (with an extra flag)
 1. Assume that golang already exists on the server
 
@@ -31,8 +31,8 @@ ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 
 | Chain     | Supported? | Playbook        | Upgrade                       | Note                                                                         |
 | --------- | ---------- | --------------- | ----------------------------- | ---------------------------------------------------------------------------- |
-| Arbitrum  | No         | NA              | Restart service               | Use Axelar Official doc                                                      |
-| Aurora    | WIP        |                 |                               |                                                                              |
+| Arbitrum  | No         | NA              | Restart docker                | Use Axelar Official doc                                                      |
+| Aurora    | No         | NA              | Restart docker                | Use Axelar Official doc                                                      |
 | Avalanche | Yes        | `avalanche.yml` | Update version & run playbook |                                                                              |
 | Binance   | Yes        | `binance.yml`   | Update version & run playbook | Use [snapshot](https://github.com/BNB48Club/bsc-snapshots)                   |
 | Celo      | Yes        | `celo.yml`      | Update version & run playbook |                                                                              |

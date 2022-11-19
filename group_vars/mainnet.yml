@@ -1,14 +1,5 @@
-# Prysm
-prysm_checkpoint: https://mainnet-checkpoint-sync.stakely.io
-prysm_genesis: https://github.com/eth-clients/eth2-networks/raw/master/shared/mainnet/genesis.ssz
-prysm_flag: '--mainnet'
-
-# Moonbeam
-moonbeam_chain_id: moonbeam
-moonbeam_data_directory: '{{ user_directory }}/.moonbeam/data'
-
-# Fantom
-fantom_genesis: mainnet-109331-pruned-mpt.g
+# Avalanche
+avalanche_flag: ''
 
 # Binance
 binance_download_file: mainnet.zip
@@ -16,8 +7,17 @@ binance_download_file: mainnet.zip
 # Celo
 celo_flag: ''
 
-# Avalanche
-avalanche_flag: ''
+# Ethereum
+prysm_checkpoint: https://mainnet-checkpoint-sync.stakely.io
+prysm_genesis: https://github.com/eth-clients/eth2-networks/raw/master/shared/mainnet/genesis.ssz
+prysm_flag: '--mainnet'
+
+# Fantom
+fantom_genesis: mainnet-109331-pruned-mpt.g
+
+# Moonbeam
+moonbeam_chain_id: moonbeam
+moonbeam_data_directory: '{{ user_directory }}/.moonbeam/data'
 
 # Polygon
 polygon_network_name: 'mainnet-v1'
