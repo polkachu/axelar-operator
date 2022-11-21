@@ -1,11 +1,35 @@
 [ethereum]
-ethereum_mainnet ansible_host=10.0.0.1 node_type=mainnet
-ethereum_testnet ansible_host=10.0.0.2 node_type=mainnet
+ethereum_mainnet ansible_host=IP node_type=mainnet
+ethereum_testnet ansible_host=IP node_type=testnet
+
+[moonbeam]
+moonbeam_mainnet ansible_host=IP node_type=mainnet
+moonbeam_mainnet ansible_host=IP node_type=testnet
+
+[celo]
+celo_mainnet ansible_host=IP node_type=mainnet celo_address=""
+celo_testnet ansible_host=IP node_type=testnet celo_address=""
+
+[avalanche]
+avalanche_mainnet ansible_host=IP node_type=mainnet
+avalanche_testnet ansible_host=IP node_type=testnet
+
+[binance]
+binance_mainnet ansible_host=IP node_type=mainnet
+binance_testnet ansible_host=IP node_type=testnet
+
+[polygon]
+polygon_mainnet ansible_host=IP node_type=mainnet
+polygon_testnet ansible_host=IP node_type=testnet
+
+[fantom]
+fantom_mainnet ansible_host=IP node_type=mainnet
+fantom_testnet ansible_host=IP node_type=testnet
 
 [all:vars]
 ansible_user=ubuntu
-ansible_port=2200
+ansible_port=22
 ansible_ssh_private_key_file="~/.ssh/id_rsa"
 user_directory='/home/{{ ansible_user }}'
 node_type_varfile='group_vars/{{ node_type }}.yml'
-nickname='polkachu'
+nickname=''

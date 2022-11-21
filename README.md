@@ -4,12 +4,12 @@ Design principles:
 
 1. Support both mainnet and testnet
 1. Only support chains with direct binary installation. For docker installation (Arbitrum and Aurora), users should just refer to the official doc
-1. Can be used for version upgrade (default) and initial installation (with an extra flag)
-1. Assume that golang already exists on the server
+1. Can be used for version upgrade (default) and initial installation (with an extra "mode=full" flag)
+1. Assume that Golang already exists on the server
 
 ## TL/DR
 
-You run one playbook to set up a node or update a node version. Here is a few examples:
+You run one playbook to set up a node or update version. Here is a few examples:
 
 ```bash
 # Mainnet: upgrade version
@@ -20,12 +20,20 @@ ansible-playbook ethereum.yml -e "target=ethereum_testnet"
 ansible-playbook ethereum.yml -e "target=ethereum_mainnet mode=full"
 ```
 
+## Setup
+
+Please first copy the sample inventory file to your own inventory file so you can customize the IPs etc:
+
+```bash
+cp inventory.sample inventory.ini
+```
+
 ## Supported Modes
 
-| Mode                 | Flags                  |
-| -------------------- | ---------------------- |
-| Initial Installation | `target=XYZ mode=full` |
-| Version Upgrade      | `target=XYZ`           |
+| Mode              | Flags                  |
+| ----------------- | ---------------------- |
+| Full Installation | `target=XYZ mode=full` |
+| Version Upgrade   | `target=XYZ`           |
 
 ## Supported Nodes
 
