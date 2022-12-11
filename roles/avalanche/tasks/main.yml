@@ -2,5 +2,6 @@
 - name: Config
   import_tasks: config.yml
   when: mode is defined and mode == "full"
-# - name: Install Avalanche
-#   import_tasks: avalanche.yml
+
+- name: Install Avalanche
+  import_tasks: avalanche.yml

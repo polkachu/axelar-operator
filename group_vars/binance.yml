@@ -2,4 +2,4 @@
 binance_repository: 'https://github.com/bnb-chain/bsc'
 binance_directory: '{{ user_directory }}/binance'
 binance_data_directory: '{{ user_directory }}/.binance'
-binance_version: v1.1.17
+binance_version: v1.1.18

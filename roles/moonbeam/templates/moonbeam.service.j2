@@ -20,7 +20,7 @@ ExecStart={{ moonbeam_node_directory }}/moonbeam \
  --execution wasm \
  --wasm-execution compiled \
  --pruning=archive \
- --state-cache-size 1 \
+ --trie-cache-size 1 \
  --db-cache 16000 \
  --base-path {{ moonbeam_data_directory }} \
  --chain {{ moonbeam_chain_id}} \
