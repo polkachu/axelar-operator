@@ -1,0 +1,15 @@
+[Unit]
+Description=heimdalld-rest-server
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory={{ polygon_node_directory }}
+ExecStart={{ user_directory }}/go/bin/heimdalld rest-server --home {{ heimdall_node_directory }}
+Type=simple
+User={{ ansible_user }}
+
+[Install]
+WantedBy=multi-user.target

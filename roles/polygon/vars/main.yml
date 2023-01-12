@@ -1,0 +1,14 @@
+---
+heimdall_config_changes:
+  '^seeds =': 'seeds = "{{ polygon_heimdall_seeds }}"'
+  '^pex =': 'pex = true'
+  '^max_open_connections =': 'max_open_connections = 100'
+  '^prometheus =': 'prometheus = true'
+heimdall_config_port_changes:
+  'laddr = "tcp://0.0.0.0:26656"': 'laddr = "tcp://0.0.0.0:{{ custom_port_prefix }}56"'
+  'laddr = "tcp://127.0.0.1:26657"': 'laddr = "tcp://0.0.0.0:{{ custom_port_prefix }}57"'
+  'proxy_app = "tcp://127.0.0.1:26658"': 'proxy_app = "tcp://127.0.0.1:{{ custom_port_prefix }}58"'
+  'prometheus_listen_addr = ":26660"': 'prometheus_listen_addr = ":{{ custom_port_prefix }}61"'
+heimdall_config_config_changes:
+  '^eth_rpc_url =': 'eth_rpc_url = "http://localhost:8545"'
+  '^bor_rpc_url =': 'bor_rpc_url = "http://localhost:{{ bor_http_port }}"'

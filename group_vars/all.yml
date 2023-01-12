@@ -19,3 +19,7 @@ fantom_p2p_port: 5050
 
 # Moonbeam ports
 moonbeam_p2p_port: 30333
+
+# Polygon ports
+bor_p2p_port: 31303
+bor_http_port: 38545

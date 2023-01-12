@@ -1,17 +1,40 @@
 [Unit]
-  Description=bor
-  StartLimitIntervalSec=500
-  StartLimitBurst=5
+Description=bor
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
-  Restart=on-failure
-  RestartSec=5s
-  WorkingDirectory={{ polygon_node_directory }}
-  ExecStart=/bin/bash {{ polygon_node_directory }}/bor/start.sh
-  Type=simple
-  User=ubuntu
-  KillSignal=SIGINT
-  TimeoutStopSec=120
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory={{ polygon_node_directory }}
+ExecStart={{ user_directory }}/go/bin/bor --datadir {{ bor_node_directory }} \
+  --port {{ bor_p2p_port }} \
+  --http --http.addr '0.0.0.0' \
+  --http.vhosts '*' \
+  --http.corsdomain '*' \
+  --http.port {{ bor_http_port }} \
+  --ipcpath {{ bor_node_directory }}/bor.ipc \
+  --http.api 'eth,net,web3,txpool,bor' \
+  --syncmode 'full' \
+  --networkid '137' \
+  --miner.gasprice '30000000000' \
+  --miner.gaslimit '20000000' \
+  --miner.gastarget '20000000' \
+  --txpool.nolocals \
+  --txpool.accountslots 16 \
+  --txpool.globalslots 32768 \
+  --txpool.accountqueue 16 \
+  --txpool.globalqueue 32768 \
+  --txpool.pricelimit '30000000000' \
+  --txpool.lifetime '1h30m0s' \
+  --maxpeers 50 \
+  --metrics \
+  --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
+  --bootnodes {{ polygon_bor_bootnodes }}
+Type=simple
+User=ubuntu
+KillSignal=SIGINT
+TimeoutStopSec=120
 
 [Install]
-  WantedBy=multi-user.target
+WantedBy=multi-user.target

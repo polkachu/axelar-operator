@@ -9,7 +9,7 @@
 
 - name: Make polygon node folder
   file:
-    path: '{{ polygon_node_directory}}'
+    path: '{{ polygon_node_directory }}'
     state: directory
 
 - name: Copy setup files
@@ -35,23 +35,6 @@
     chdir: '{{ polygon_node_directory }}/bor'
   with_items:
     - bash setup.sh
-  environment:
-    PATH: '{{ path }}'
-    GOPATH: '{{ user_directory }}/go'
-
-- name: Copy service setup files
-  copy:
-    remote_src: true
-    src: '{{ polygon_setup_directory }}/{{ polygon_network_name }}/service.sh'
-    dest: '{{ polygon_node_directory }}'
-    mode: '0755'
-
-- name: Generate service files
-  command: '{{ item }}'
-  args:
-    chdir: '{{ polygon_node_directory }}'
-  with_items:
-    - bash service.sh
   environment:
     PATH: '{{ path }}'
     GOPATH: '{{ user_directory }}/go'

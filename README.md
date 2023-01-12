@@ -48,7 +48,7 @@ cp inventory.sample inventory.ini
 | Fantom    | Yes        | `fantom.yml`    | Update version & run playbook | Use [snapshot](https://docs.fantom.foundation/node/snapshot-download)    |
 | kava      | Yes        | NA              | NA                            | See [Cosmos Ansible Repo](https://github.com/polkachu/cosmos-validators) |
 | Moonbeam  | Yes        | `moonbeam.yml`  | Update version & run playbook |                                                                          |
-| Polygon   | WIP        | `polygon.yml`   | Update version & run playbook | [official Ansible script](https://github.com/maticnetwork/node-ansible)  |
+| Polygon   | WIP        | `polygon.yml`   | Update version & run playbook | Use [snapshot](https://snapshot.polygon.technology/)                     |
 
 ## Note
 

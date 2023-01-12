@@ -1,0 +1,21 @@
+---
+- name: Adjust heimdall config.toml
+  lineinfile:
+    path: '{{ heimdall_node_directory }}/config/config.toml'
+    regexp: '{{ item.key }}'
+    line: '{{ item.value }}'
+  loop: '{{ heimdall_config_changes | dict2items }}'
+
+- name: Adjust heimdall config.toml ports
+  lineinfile:
+    path: '{{ heimdall_node_directory }}/config/config.toml'
+    regexp: '{{ item.key }}'
+    line: '{{ item.value }}'
+  loop: '{{ heimdall_config_port_changes | dict2items }}'
+
+- name: Adjust heimdall config config.toml
+  lineinfile:
+    path: '{{ heimdall_node_directory }}/config/heimdall-config.toml'
+    regexp: '{{ item.key }}'
+    line: '{{ item.value }}'
+  loop: '{{ heimdall_config_config_changes | dict2items }}'

@@ -21,3 +21,5 @@ moonbeam_data_directory: '{{ user_directory }}/.alphanet/data'
 
 # Polygon
 polygon_network_name: 'testnet-v4'
+polygon_heimdall_seeds: "4cd60c1d76e44b05f7dfd8bab3f447b119e87042@54.147.31.250:26656,b18bbe1f3d8576f4b73d9b18976e71c65e839149@34.226.134.117:26656"
+polygon_bor_bootnodes: "enode://320553cda00dfc003f499a3ce9598029f364fbb3ed1222fdc20a94d97dcc4d8ba0cd0bfa996579dcc6d17a534741fb0a5da303a90579431259150de66b597251@54.147.31.250:30303"

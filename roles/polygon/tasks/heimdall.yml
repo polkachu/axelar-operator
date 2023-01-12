@@ -14,3 +14,5 @@
     chdir: '{{ heimdall_directory }}'
   with_items:
     - 'make install'
+  environment:
+    PATH: '{{ path }}'
