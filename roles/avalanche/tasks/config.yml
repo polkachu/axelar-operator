@@ -12,3 +12,10 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: Open p2p port
+  become: true
+  ufw:
+    rule: allow
+    proto: tcp
+    port: '{{ avalanche_p2p_port }}'

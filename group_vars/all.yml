@@ -1,6 +1,9 @@
 # Path
 path: '/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin:/usr/local/go/bin:{{ user_directory }}/go/bin'
 
+# Avalanche ports
+avalanche_p2p_port: 9651
+
 # Binance ports
 binance_p2p_port: 40303
 binance_http_port: 18545

@@ -12,11 +12,16 @@
     mode: '0755'
     remote_src: true
 
+- name: Make avalanche node folder
+  file:
+    path: '{{ avalanche_node_directory }}'
+    state: directory
+
 - name: Copy binary
   copy:
     remote_src: true
     src: '/tmp/avalanchego-{{ avalanche_version }}/avalanchego'
-    dest: '{{ avalanche_node_directory }}'
+    dest: '{{ avalanche_node_directory }}/avalanchego'
     mode: '0755'
 
 - name: Make plugins folder
