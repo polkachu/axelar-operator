@@ -1,3 +1,3 @@
 ---
 moonbeam_node_directory: '{{ user_directory }}/moonbeam-node'
-moonbeam_version: v0.28.1
+moonbeam_version: v0.30.0
