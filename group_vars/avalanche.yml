@@ -1,5 +1,5 @@
 ---
-avalanche_version: v1.9.15
+avalanche_version: v1.10.3
 avalanche_download_link: 'https://github.com/ava-labs/avalanchego/releases/download/{{ avalanche_version }}/avalanchego-linux-amd64-{{ avalanche_version }}.tar.gz'
 avalanche_node_directory: '{{ user_directory }}/avalanche-node'
 avalanche_data_directory: '{{ user_directory }}/.avalanchego'

@@ -26,3 +26,7 @@ moonbeam_p2p_port: 30333
 # Polygon ports
 bor_p2p_port: 31303
 bor_http_port: 38545
+
+# Filecoin ports
+filecoin_p2p_port: 32303
+filecoin_http_port: 1234

@@ -1,0 +1,5 @@
+---
+filecoin_repository: 'https://github.com/filecoin-project/lotus.git'
+filecoin_directory: '{{ user_directory }}/filecoin'
+filecoin_data_directory: '{{ user_directory }}/.filecoin'
+filecoin_version: releases

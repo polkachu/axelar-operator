@@ -1,0 +1,17 @@
+---
+- name: Clone Filecoin repo
+  git:
+    repo: '{{ filecoin_repository }}'
+    dest: '{{ filecoin_directory }}'
+    version: '{{ filecoin_version }}'
+    update: yes
+    force: yes
+    recursive: no
+
+- name: Install filecoin
+  command: '{{ item }}'
+  args:
+    chdir: '{{ filecoin_directory }}'
+  with_items:
+    - 'make clean all'
+    - 'make install'
